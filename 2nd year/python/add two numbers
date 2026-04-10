@@ -1,0 +1,45 @@
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution(object):
+    def addTwoNumbers(self, l1, l2):
+        """
+        :type l1: Optional[ListNode]
+        :type l2: Optional[ListNode]
+        :rtype: Optional[ListNode]
+        """
+        class Solution(object):
+    def addTwoNumbers(self, l1, l2):
+        """
+        :type l1: Optional[ListNode]
+        :type l2: Optional[ListNode]
+        :rtype: Optional[ListNode]
+        """
+        # Create a dummy node to act as the starting point of the result list
+        dummy = ListNode(0)
+        curr = dummy
+        carry = 0
+        
+        # Traverse both lists until both are exhausted and no carry remains
+        while l1 or l2 or carry:
+            # Get the values from the current nodes, or 0 if a list is shorter
+            v1 = l1.val if l1 else 0
+            v2 = l2.val if l2 else 0
+            
+            # Calculate the sum and new carry
+            total = v1 + v2 + carry
+            carry = total // 10
+            val = total % 10
+            
+            # Create a new node with the current digit and link it
+            curr.next = ListNode(val)
+            curr = curr.next
+            
+            # Advance the input pointers
+            l1 = l1.next if l1 else None
+            l2 = l2.next if l2 else None
+            
+        # The result starts from the node after the dummy
+        return dummy.next
